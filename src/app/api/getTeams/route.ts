@@ -4,7 +4,7 @@ import { NextApiRequest,NextApiResponse } from "next/dist/shared/lib/utils";
 
 
 
-export async function GET(req: NextApiRequest, res: NextApiResponse)
+export async function GET(req:any, res:any)
 {
   const getRegistervalue=(str:string)=>{
     const index = str.indexOf('registered=');
