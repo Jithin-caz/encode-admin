@@ -5,9 +5,6 @@ import Hero from "./hero/page";
 
 export default function Home() {
   return (
-   <AuthProvider>
     <Hero/>
-   </AuthProvider>
-
   );
 }

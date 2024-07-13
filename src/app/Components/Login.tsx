@@ -6,18 +6,18 @@ import { useAuth } from "../context/AuthContext";
 interface LoginProps {
     setSignedin: React.Dispatch<React.SetStateAction<boolean>>;
   }
-const Login: React.FC<LoginProps> = ({ setSignedin }) =>
+const Login= () =>
 {
 const [username,setusername]=useState('')
 const [password,setPassword]=useState('')
-//const { signedIn, setSignedIn } = useAuth();
+const { signedIn, setSignedIn } = useAuth();
 const FormSubmit=()=>{
     const requser=process.env.NEXT_PUBLIC_USERNAME
     const reqpass=process.env.NEXT_PUBLIC_PASSWORD
    
     if(username===requser&& password==reqpass)
     {
-       setSignedin(true)
+       setSignedIn(true)
     }
     else{
         alert('invalid login credentials')

@@ -2,11 +2,12 @@
 
 import HeroSection from "@/app/Components/HeroSection";
 import Login from "@/app/Components/Login";
-//import { useAuth } from "@/app/context/AuthContext";
-import { useState } from "react";
+
+
+import { useAuth } from "../context/AuthContext";
 export default function Hero()
 {
-    const [signedin, setSignedin] = useState(false)
+    const {signedIn, setSignedIn} = useAuth()
    
-    return signedin?<HeroSection/>:<Login setSignedin={setSignedin}/>
+    return signedIn?<HeroSection/>:<Login/>
 }
