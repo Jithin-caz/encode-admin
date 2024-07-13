@@ -1,20 +1,23 @@
 'use client'
 
 import { useState } from "react"
+import React from "react";
 import { useAuth } from "../context/AuthContext";
-
-export default function Login()
+interface LoginProps {
+    setSignedin: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+const Login: React.FC<LoginProps> = ({ setSignedin }) =>
 {
 const [username,setusername]=useState('')
 const [password,setPassword]=useState('')
-const { signedIn, setSignedIn } = useAuth();
+//const { signedIn, setSignedIn } = useAuth();
 const FormSubmit=()=>{
     const requser=process.env.NEXT_PUBLIC_USERNAME
     const reqpass=process.env.NEXT_PUBLIC_PASSWORD
    
     if(username===requser&& password==reqpass)
     {
-        setSignedIn(true)
+       setSignedin(true)
     }
     else{
         alert('invalid login credentials')
@@ -31,3 +34,4 @@ const FormSubmit=()=>{
         </form>
     </section>
 }
+export default Login
