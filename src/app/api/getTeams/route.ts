@@ -42,6 +42,7 @@ const  registered  =getRegistervalue(req.url) ;
   //     }
   //   }
   // }
+  //@ts-ignore
   return Response.json({
     message:"get success",
     status:"201",

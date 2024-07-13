@@ -32,12 +32,12 @@ export default function HeroSection()
        <div className=" pt-5 text-black px-2 flex flex-col">
         <p className=" pb-5">no of teams is {nteams}</p>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-stretch gap-5">
-            {teams.map((team,index)=><div key={team} className=" flex-col p-2 rounded-md bg-slate-100 text-slate-700  col-span-1 shadow-md ">
+            {teams.map((team:any,index:any)=><div key={team} className=" flex-col p-2 rounded-md bg-slate-100 text-slate-700  col-span-1 shadow-md ">
             <div className=" w-full flex justify-between"><h1 className=" font-semibold">{team.team}</h1> <div>h</div></div>
             <p className=" text-xs pb-3">country:{team.members[0].country}</p>
             <p className=" font-semibold">members:</p>
             <ul>
-             {team.members.map((member,ind)=><li className=" text-sm flex-col" key={member}>
+             {team.members.map((member:any,ind:any)=><li className=" text-sm flex-col" key={member}>
                <p className=" pb-2">{member.name} <br />{member.email}</p> 
              </li> )}   
             </ul>
