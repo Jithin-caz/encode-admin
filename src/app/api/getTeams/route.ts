@@ -2,16 +2,18 @@
 import clientPromise from "@/lib/mongodb";
 import { NextApiRequest,NextApiResponse } from "next/dist/shared/lib/utils";
 
-export const getRegistervalue=(str:string)=>{
-  const index = str.indexOf('registered=');
-  const startIndex = index + 'registered='.length;
-  if(str.substring(startIndex)==='true')
-    return true
-  else 
-    return false
-}
+
+
 export async function GET(req: NextApiRequest, res: NextApiResponse)
 {
+  const getRegistervalue=(str:string)=>{
+    const index = str.indexOf('registered=');
+    const startIndex = index + 'registered='.length;
+    if(str.substring(startIndex)==='true')
+      return true
+    else 
+      return false
+  }
   //@ts-ignore
   const client = await clientPromise;
   const db = client.db('data'); // use your database name
