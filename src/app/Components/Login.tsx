@@ -23,7 +23,7 @@ const FormSubmit=()=>{
         alert('invalid login credentials')
     }
 }
-    return <section className=" h-dvh flex items-center justify-center p-3">
+    return <section className=" h-dvh flex items-center justify-center p-3 bg-yellow-50 bg-opacity-50">
         <form onSubmit={FormSubmit} className=" max-w-xl shadow-lg p-4">
             <h1>Login</h1>
         <input value={username} onChange={(e)=>setusername(e.target.value)}
