@@ -14,7 +14,7 @@ export default function HeroSection()
           })
         console.log('teams are')
         console.log(response.data.teams)
-        await setTeams(response.data.teams)
+        await setTeams(response.data.teams.sort((a:any, b:any) => a.team.localeCompare(b.team)))
        await setNteams(response.data.teams.length)
     }
     useEffect(()=>{
@@ -29,7 +29,8 @@ export default function HeroSection()
          data:{team},
        }).then((response)=>{
          console.log(response)
-         alert('deleted.Please refresh page')
+         window.location.reload();
+         // alert('deleted.Please refresh page')
         
      })
        

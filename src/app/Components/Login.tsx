@@ -17,6 +17,7 @@ const FormSubmit=()=>{
    
     if(username===requser&& password==reqpass)
     {
+        localStorage.setItem('username',username)
        setSignedIn(true)
     }
     else{
