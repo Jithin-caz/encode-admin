@@ -48,7 +48,7 @@ export default function HeroSection()
        <div className=" bg-slate-600 text-center text-white py-24">
        <h1 className=" text-4xl font-mono">Admin page of Extreme ENCODE</h1> 
        </div>
-       <div className=" flex gap-3 mt-6 justify-center ">
+       <div className=" flex gap-3 mt-6 justify-center px-3">
         <button onClick={()=>setNotRegTeams(true)} className={`p-2 rounded-md ${notRegTeams?'bg-slate-700':'bg-slate-200'} ${notRegTeams?'text-white':'text-slate-700'}`}>not registered teams</button> 
         <button onClick={()=>setNotRegTeams(false)} className={`p-2 rounded-md ${!notRegTeams?'bg-slate-700':'bg-slate-200'} ${!notRegTeams?'text-white':'text-slate-700'}`}>registered teams</button>
        </div>
@@ -60,8 +60,9 @@ export default function HeroSection()
              <p className=" text-xs pb-3">country:{team.members[0].country}</p> 
             <p className=" font-semibold">members:</p>
             <ul>
-             {team.members.map((member:any)=><li className=" text-sm flex-col" key={member}>
-               <p className=" pb-2">{member.name} <br />{member.email}</p> 
+             {team.members.map((member:any)=><li className=" text-sm flex-col w-full" key={member}>
+               <p>{member.name}</p> 
+               <p className="pb-2 max-w-full overflow-x-scroll">{member.email}</p> 
              </li> )}    
             </ul>
             <p className=" text-sm font-semibold">Score:{team.score}</p>
