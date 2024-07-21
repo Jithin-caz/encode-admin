@@ -14,11 +14,13 @@ export default function HeroSection()
           })
         console.log('teams are')
         console.log(response.data.teams)
-        await setTeams(response.data.teams.sort((a:any, b:any) => a.team.localeCompare(b.team)))
-       await setNteams(response.data.teams.length)
+        //await setTeams(response.data.teams.sort((a:any, b:any) => a.team.localeCompare(b.team)))
+         setTeams(Object.values(response.data.teams.sort((a:any, b:any) => a.team.localeCompare(b.team))))
+         setNteams(response.data.teams.length)
     }
     useEffect(()=>{
            getTeams(!notRegTeams)
+           
     },[notRegTeams])
     const deleteTeam=async(team:string)=>{
       const confirm=window.confirm('do you want to delete')
@@ -55,12 +57,12 @@ export default function HeroSection()
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-stretch gap-5">
             {teams.map((team:any,index:any)=><div key={team} className=" flex-col p-2 rounded-md bg-slate-100 text-slate-700  col-span-1 shadow-md ">
             <div className=" w-full flex justify-between"><h1 className=" font-semibold">{team.team}</h1> <button className=" opacity-70 hover:scale-110 duration-500 ease-in-out hover:opacity-100" onClick={()=>{deleteTeam(team.team)}}><img width="20" height="20" src="https://img.icons8.com/sf-regular-filled/48/filled-trash.png" alt="filled-trash"/></button></div>
-            <p className=" text-xs pb-3">country:{team.members[0].country}</p>
+             <p className=" text-xs pb-3">country:{team.members[0].country}</p> 
             <p className=" font-semibold">members:</p>
             <ul>
-             {team.members.map((member:any,ind:any)=><li className=" text-sm flex-col" key={member}>
+             {team.members.map((member:any)=><li className=" text-sm flex-col" key={member}>
                <p className=" pb-2">{member.name} <br />{member.email}</p> 
-             </li> )}   
+             </li> )}    
             </ul>
             <p className=" text-sm font-semibold">Score:{team.score}</p>
             </div>)}
