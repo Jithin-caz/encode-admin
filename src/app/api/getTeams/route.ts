@@ -32,6 +32,12 @@ const  registered  =getRegistervalue(req.url) ;
        
       }
      else{
+      // const team=teams[i].team.trim();
+      // if(team===' MindSpark '.trim().toLowerCase())
+      // {
+      //   console.log(`team is ${team}`)
+      // }
+
       //console.log('got member')
        // for(var j=0;j<teams[i].members.length;j++)
         // {
