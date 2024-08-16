@@ -8,6 +8,10 @@ export default function HeroSection()
     const [notRegTeams,setNotRegTeams]=useState(true)
     const [nteams,setNteams]=useState(0)
     const [teams,setTeams]=useState<any>([])
+    const setScore=async()=>{
+      const response=await axios.get("/api/setScore")
+      console.log(response)
+    }
     const getTeams=async(registered:boolean)=>{
         const response=await axios.get("/api/getTeams",{
             params: { registered: registered },
@@ -47,6 +51,7 @@ export default function HeroSection()
        
        <div className=" bg-slate-600 text-center text-white py-24">
        <h1 className=" text-4xl font-mono">Admin page of Extreme ENCODE</h1> 
+       <button onClick={()=>setScore()}>click to add score</button>
        </div>
        <div className=" flex gap-3 mt-6 justify-center px-3">
         <button onClick={()=>setNotRegTeams(true)} className={`p-2 rounded-md ${notRegTeams?'bg-slate-700':'bg-slate-200'} ${notRegTeams?'text-white':'text-slate-700'}`}>not registered teams</button> 
